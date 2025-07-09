@@ -27,13 +27,13 @@
                     @php
                         if (auth()->check()) {
                             if (auth()->user()->role === 'admin') {
-                                $dashboardUrl = url('/admin/dashboard');
+                                $dashboardUrl = route('admin.dashboard');
                             } elseif (auth()->user()->role === 'teacher') {
-                                $dashboardUrl = url('/teacher/dashboard');
+                                $dashboardUrl = route('teacher.dashboard');
                             } elseif (auth()->user()->role === 'student') {
-                                $dashboardUrl = url('/student/dashboard');
+                                $dashboardUrl = route('student.dashboard');
                             } elseif (auth()->user()->role === 'parent') {
-                                $dashboardUrl = url('/parent/dashboard');
+                                $dashboardUrl = route('parent.dashboard');
                             }
                             else {
                                 $dashboardUrl = url('/login');
