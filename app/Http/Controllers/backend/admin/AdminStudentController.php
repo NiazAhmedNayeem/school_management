@@ -41,4 +41,28 @@ class AdminStudentController extends Controller
         // This method will handle the deletion of a student
         // Deletion logic goes here
     }
+
+    public function checkNid(Request $request)
+    {
+        $nid = $request->nid;
+
+        // Check parent by NID
+        $parent = ParentModel::where('nid_number', $nid)->first();
+
+        if ($parent) {
+            return response()->json([
+                'status' => 'found',
+                'parent' => [
+                    'name' => $parent->name,
+                    'email' => $parent->email,
+                    'phone' => $parent->phone,
+                    'address' => $parent->address,
+                ],
+            ]);
+        } else {
+            return response()->json([
+                'status' => 'not_found',
+            ]);
+        }
+    }
 }
