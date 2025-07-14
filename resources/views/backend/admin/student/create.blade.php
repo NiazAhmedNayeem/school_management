@@ -15,7 +15,7 @@
         </div>
     @endif
 
-    <form method="POST" action="{{ route('admin.store_student') }}" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <form method="POST" action="{{ route('admin.store_student') }}" enctype="multipart/form-data" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         @csrf
 
         <h3 class="text-lg font-semibold mb-3">🎓 Student Information</h3>
@@ -24,22 +24,22 @@
 
             <div class="col-md-4 mb-4">
                 <label class="block text-gray-700 text-sm font-bold">Student Name</label>
-                <input type="text" name="student_name" value="{{ old('student_name') }}" class="form-control w-100 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                <input type="text" name="student_name" value="{{ old('student_name') }}" class="form-control" required>
             </div>
 
             <div class="col-md-4 mb-4">
                 <label class="block text-gray-700 text-sm font-bold">Student Email</label>
-                <input type="email" name="student_email" value="{{ old('student_email') }}" class="form-control w-100 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                <input type="email" name="student_email" value="{{ old('student_email') }}" class="form-control" required>
             </div>
 
             <div class="col-md-4 mb-4">
                 <label class="block text-gray-700 text-sm font-bold">Student Phone</label>
-                <input type="text" name="student_phone" value="{{ old('student_phone') }}" class="form-control w-100 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                <input type="text" name="student_phone" value="{{ old('student_phone') }}" class="form-control" required>
             </div>
 
             <div class="col-md-4 mb-4">
                 <label class="block text-gray-700 text-sm font-bold">Class</label>
-                <select name="class" class="form-control w-100 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                <select name="class" class="form-control" required>
                     <option value="">Select Class</option>
                     <option value="Class 1" {{ old('class') == 'Class 1' ? 'selected' : '' }}>Class 1</option>
                     <option value="Class 2" {{ old('class') == 'Class 2' ? 'selected' : '' }}>Class 2</option>
@@ -51,7 +51,7 @@
 
             <div class="col-md-4 mb-4">
                 <label class="block text-gray-700 text-sm font-bold">Section</label>
-                <select name="section" class="form-control w-100 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <select name="section" class="form-control">
                     <option value="">Select Section</option>
                     <option value="A" {{ old('section') == 'A' ? 'selected' : '' }}>A</option>
                     <option value="B" {{ old('section') == 'B' ? 'selected' : '' }}>B</option>
@@ -61,43 +61,43 @@
 
             <div class="col-md-4 mb-4">
                 <label class="block text-gray-700 text-sm font-bold">Date of Birth</label>
-                <input type="date" name="dob" value="{{ old('dob') }}" class="form-control w-100 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="date" name="dob" value="{{ old('dob') }}" class="form-control">
             </div>
 
-             <div class="col-md-4 mb-4">
+            <div class="col-md-4 mb-4">
                 <label class="block text-gray-700 text-sm font-bold">Gender</label>
-                <select name="section" class="form-control w-100 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <select name="gender" class="form-control">
                     <option value="">Select Gender</option>
-                    <option value="Male" {{ old('section') == 'Male' ? 'selected' : '' }}>Male</option>
-                    <option value="Female" {{ old('section') == 'Female' ? 'selected' : '' }}>Female</option>
-                    <option value="Other" {{ old('section') == 'Other' ? 'selected' : '' }}>Other</option>
+                    <option value="Male" {{ old('gender') == 'Male' ? 'selected' : '' }}>Male</option>
+                    <option value="Female" {{ old('gender') == 'Female' ? 'selected' : '' }}>Female</option>
+                    <option value="Other" {{ old('gender') == 'Other' ? 'selected' : '' }}>Other</option>
                 </select>
             </div>
 
             <div class="col-md-4 mb-4">
                 <label class="block text-gray-700 text-sm font-bold">Student Age</label>
-                <input type="number" name="student_age" value="{{ old('student_age') }}" class="form-control w-100 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                <input type="number" name="student_age" value="{{ old('student_age') }}" class="form-control" required>
             </div>
 
             <div class="col-md-4 mb-4">
                 <label class="block text-gray-700 text-sm font-bold">Student Pre School</label>
-                <input type="text" name="student_pre_school" value="{{ old('student_pre_school') }}" class="form-control w-100 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                <input type="text" name="student_pre_school" value="{{ old('student_pre_school') }}" class="form-control" required>
             </div>
 
             <div class="col-md-4 mb-4">
                 <label class="block text-gray-700 text-sm font-bold">Student Pre Class</label>
-                <input type="text" name="student_pre_class" value="{{ old('student_pre_class') }}" class="form-control w-100 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                <input type="text" name="student_pre_class" value="{{ old('student_pre_class') }}" class="form-control" required>
             </div>
 
             <div class="col-md-4 mb-4">
                 <label class="block text-gray-700 text-sm font-bold">Student Pre Section</label>
-                <input type="text" name="student_pre_section" value="{{ old('student_pre_section') }}" class="form-control w-100 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                <input type="text" name="student_pre_section" value="{{ old('student_pre_section') }}" class="form-control" required>
             </div>
 
-
-
-
-
+            <div class="col-md-4 mb-4">
+                <label class="block text-gray-700 text-sm font-bold">Student Image</label>
+                <input type="file" name="student_image" class="form-control">
+            </div>
         </div>
 
         <h3 class="text-lg font-semibold mb-3">👨‍👩‍👧‍👦 Parent Information</h3>
@@ -105,13 +105,10 @@
         <div class="row card-body border rounded">
             <div class="col-md-4 mb-4">
                 <label class="block text-gray-700 text-sm font-bold">Parent NID Number (auto check)</label>
-                <input type="text" id="parent_nid" name="parent_nid" value="{{ old('parent_nid') }}" class="form-control w-100 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                <input type="text" id="parent_nid" name="parent_nid" value="{{ old('parent_nid') }}" class="form-control">
             </div>
-        
 
-            <div id="parentInfo"  
-                style="display: none;"
-                class="bg-green-50 border border-green-300 p-4 rounded mb-4">
+            <div id="parentInfo" style="display: none;" class="bg-green-50 border border-green-300 p-4 rounded mb-4">
                 <h4 class="font-medium mb-2">✅ Existing Parent Info:</h4>
                 <p><strong>Name:</strong> <span id="p_name"></span></p>
                 <p><strong>Email:</strong> <span id="p_email"></span></p>
@@ -123,34 +120,33 @@
                 <p class="mb-2 text-red-600">❌ Parent not found. Please add new parent info below:</p>
                 <div class="row">
                     <div class="col-md-4 mb-4">
-                        <input type="text" name="parent_name" placeholder="Parent Name" value="{{ old('parent_name') }}" class="form-control w-100 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <input type="text" name="parent_name" placeholder="Parent Name" value="{{ old('parent_name') }}" class="form-control">
                     </div>
                     <div class="col-md-4 mb-4">
-                        <input type="email" name="parent_email" placeholder="Parent Email" value="{{ old('parent_email') }}" class="form-control w-100 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <input type="email" name="parent_email" placeholder="Parent Email" value="{{ old('parent_email') }}" class="form-control">
                     </div>
                     <div class="col-md-4 mb-4">
-                        <input type="text" name="parent_phone" placeholder="Phone" value="{{ old('parent_phone') }}" class="form-control w-100 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <input type="text" name="parent_phone" placeholder="Phone" value="{{ old('parent_phone') }}" class="form-control">
                     </div>
                     <div class="col-md-4 mb-4">
-                        <input type="text" name="parent_occupation" placeholder="Occupation" value="{{ old('parent_occupation') }}" class="form-control w-100 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <input type="text" name="parent_occupation" placeholder="Occupation" value="{{ old('parent_occupation') }}" class="form-control">
                     </div>
                     <div class="col-md-4 mb-4">
-                        <input type="text" name="parent_address" placeholder="Address" value="{{ old('parent_address') }}" class="form-control w-100 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <input type="text" name="parent_address" placeholder="Address" value="{{ old('parent_address') }}" class="form-control">
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <label class="block text-gray-700 text-sm font-bold">Parent Image</label>
+                        <input type="file" name="parent_image" class="form-control">
                     </div>
                 </div>
             </div>
-
         </div>
 
-
-        <div class="col-md-12 mt-2 text-center">
+        <div class="col-md-12 mt-4 text-center">
             <button type="submit" class="btn btn-primary px-4 py-2 font-bold rounded focus:outline-none focus:shadow-outline">
                 Create Student
             </button>
         </div>
-
-        
-
 
     </form>
 </div>
@@ -159,8 +155,8 @@
 @section('scripts')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    let typingTimer;                
-    let doneTypingInterval = 800; // milliseconds
+    let typingTimer;
+    let doneTypingInterval = 800;
 
     $('#parent_nid').on('keyup', function () {
         clearTimeout(typingTimer);

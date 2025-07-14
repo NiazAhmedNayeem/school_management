@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ParentModel extends Model
+class SchoolSection extends Model
 {
     //
 }

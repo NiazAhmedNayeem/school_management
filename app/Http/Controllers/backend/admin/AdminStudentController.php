@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ParentModel;
 use Illuminate\Http\Request;
 
 class AdminStudentController extends Controller

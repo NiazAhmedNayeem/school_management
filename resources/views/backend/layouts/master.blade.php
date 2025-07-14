@@ -33,5 +33,6 @@
         </div>
        
         @include('backend.partials.script')
+        @yield('scripts')
     </body>
 </html>
