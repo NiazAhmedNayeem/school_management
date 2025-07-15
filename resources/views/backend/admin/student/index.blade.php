@@ -2,7 +2,7 @@
 @section('title', 'All Students')
 @section('main-content')
 
- <div class="container-fluid px-4">
+
     <div class="col-md-12 d-flex justify-content-between align-items-center">
         <div>
             <h1 class="mt-4">All Students Information</h1>
@@ -543,5 +543,5 @@
                 </table>
             </div>
         </div>
-    </div>
+
 @endsection

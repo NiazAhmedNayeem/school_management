@@ -33,15 +33,16 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::get('/edit-class/{id}', [AdminClassController::class, 'editClass'])->name('admin.edit_class');
     Route::post('/update-class/{id}', [AdminClassController::class, 'updateClass'])->name('admin.update_class');
     Route::delete('/delete-class/{id}', [AdminClassController::class, 'deleteClass'])->name('admin.delete_class');
-    Route::get('/check-class-name', [AdminClassController::class, 'checkClassName'])->name('admin.check_class_name');
+    Route::post('/update-class-status', [AdminClassController::class, 'updateClassStatus'])->name('admin.update_class_status');
+    //Route::get('/check-class-name', [AdminClassController::class, 'checkClassName'])->name('admin.check_class_name');
     //Section Routes
     Route::get('/all-sections', [AdminSectionController::class, 'allSections'])->name('admin.all_sections');
     Route::get('/add-section', [AdminSectionController::class, 'addSection'])->name('admin.add_section');
     Route::post('/store-section', [AdminSectionController::class, 'storeSection'])->name('admin.store_section');
-    Route::get('/edit-section/{id}', [AdminSectionController::class, 'editSection'])->name('admin.edit_section');
-    Route::post('/update-section/{id}', [AdminSectionController::class, 'updateSection'])->name('admin.update_section');
-    Route::delete('/delete-section/{id}', [AdminSectionController::class, 'deleteSection'])->name('admin.delete_section');
-
+    Route::get('/edit-section/{slug}', [AdminSectionController::class, 'editSection'])->name('admin.edit_section');
+    Route::post('/update-section/{slug}', [AdminSectionController::class, 'updateSection'])->name('admin.update_section');
+    Route::delete('/delete-section/{slug}', [AdminSectionController::class, 'deleteSection'])->name('admin.delete_section');
+    Route::post('/update-section-status', [AdminSectionController::class, 'updateSectionStatus'])->name('admin.update_section_status');
 
 });
 

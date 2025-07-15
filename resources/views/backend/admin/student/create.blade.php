@@ -2,7 +2,7 @@
 @section('title', 'Admin | Add New Student')
 @section('main-content')
 
-<div class="container-fluid px-4">
+
     <h1 class="text-2xl font-bold text-center mt-4">Add New Student</h1>
 
     @if ($errors->any())
@@ -149,7 +149,7 @@
         </div>
 
     </form>
-</div>
+
 @endsection
 
 @section('scripts')

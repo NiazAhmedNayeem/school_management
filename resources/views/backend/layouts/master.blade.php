@@ -2,8 +2,9 @@
 <html lang="en">
     
     <!-- Header -->
-    @include('backend.partials.header')
-
+    <head>
+        @include('backend.partials.header')
+    </head>
 
     <body class="sb-nav-fixed">
 
@@ -21,9 +22,9 @@
             
             <div id="layoutSidenav_content">
                 <main>
-
-                    @yield('main-content')
-
+                    <div class="container-fluid px-4">
+                        @yield('main-content')
+                    </div>
                 </main>
                 
                 <!-- Footer -->
@@ -31,8 +32,11 @@
 
             </div>
         </div>
-       
+       {{-- Script section --}}
         @include('backend.partials.script')
         @yield('scripts')
+
+        
+
     </body>
 </html>
