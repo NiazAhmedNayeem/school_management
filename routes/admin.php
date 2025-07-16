@@ -6,7 +6,7 @@ use App\Http\Controllers\backend\admin\AdminDashboardController;
 use App\Http\Controllers\backend\admin\AdminStudentController;
 use App\Http\Controllers\backend\admin\AdminClassController;
 use App\Http\Controllers\backend\admin\AdminSectionController;
-
+use App\Http\Controllers\backend\admin\AdminTeacherController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\AdminMiddleware;
 
@@ -43,6 +43,17 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::post('/update-section/{slug}', [AdminSectionController::class, 'updateSection'])->name('admin.update_section');
     Route::delete('/delete-section/{slug}', [AdminSectionController::class, 'deleteSection'])->name('admin.delete_section');
     Route::post('/update-section-status', [AdminSectionController::class, 'updateSectionStatus'])->name('admin.update_section_status');
+
+
+    //Teacher Routes
+    Route::get('/all-teachers', [AdminTeacherController::class, 'allTeachers'])->name('admin.all_teachers');
+    Route::get('/add-teacher', [AdminTeacherController::class, 'addTeacher'])->name('admin.add_teacher');
+    Route::get('/check-teacher-nid', [AdminTeacherController::class, 'checkTeacherByNid'])->name('admin.check_teacher_nid');
+    Route::post('/store-teacher', [AdminTeacherController::class, 'storeTeacher'])->name('admin.store_teacher');
+    Route::get('/edit-teacher/{id}', [AdminTeacherController::class, 'editTeacher'])->name('admin.edit_teacher');
+    Route::post('/update-teacher/{id}', [AdminTeacherController::class, 'updateTeacher'])->name('admin.update_teacher');
+    Route::delete('/delete-teacher/{id}', [AdminTeacherController::class, 'destroyTeacher'])->name('admin.delete_teacher');
+
 
 });
 

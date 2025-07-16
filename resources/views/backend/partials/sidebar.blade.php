@@ -3,7 +3,28 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.html">
+
+                            @php
+                                if (auth()->check()) {
+                                    if (auth()->user()->role === 'admin') {
+                                        $dashboardUrl = route('admin.dashboard');
+                                    } elseif (auth()->user()->role === 'teacher') {
+                                        $dashboardUrl = route('teacher.dashboard');
+                                    } elseif (auth()->user()->role === 'student') {
+                                        $dashboardUrl = route('student.dashboard');
+                                    } elseif (auth()->user()->role === 'parent') {
+                                        $dashboardUrl = route('parent.dashboard');
+                                    }
+                                    else {
+                                        $dashboardUrl = url('/login');
+                                    }
+                                } 
+                                else {
+                                    $dashboardUrl = url('/');
+                                }
+                            @endphp
+
+                            <a class="nav-link" href="{{ $dashboardUrl }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
@@ -35,7 +56,7 @@
                                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                     <nav class="sb-sidenav-menu-nested nav">
                                         <a class="nav-link" href="#">Admin</a>
-                                        <a class="nav-link" href="#">Teachers</a>
+                                        <a class="nav-link" href="{{ route('admin.all_teachers') }}">Teachers</a>
                                         <a class="nav-link" href="{{ route('admin.all_students') }}">Students</a>
                                         <a class="nav-link" href="#">Parents</a>
                                     </nav>
