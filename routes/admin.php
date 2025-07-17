@@ -50,9 +50,12 @@ Route::prefix('admin')->middleware([AdminMiddleware::class])->group(function () 
     Route::get('/add-teacher', [AdminTeacherController::class, 'addTeacher'])->name('admin.add_teacher');
     Route::get('/check-teacher-nid', [AdminTeacherController::class, 'checkTeacherByNid'])->name('admin.check_teacher_nid');
     Route::post('/store-teacher', [AdminTeacherController::class, 'storeTeacher'])->name('admin.store_teacher');
-    Route::get('/edit-teacher/{id}', [AdminTeacherController::class, 'editTeacher'])->name('admin.edit_teacher');
-    Route::post('/update-teacher/{id}', [AdminTeacherController::class, 'updateTeacher'])->name('admin.update_teacher');
-    Route::delete('/delete-teacher/{id}', [AdminTeacherController::class, 'destroyTeacher'])->name('admin.delete_teacher');
+    Route::get('/edit-teacher/{slug}', [AdminTeacherController::class, 'editTeacher'])->name('admin.edit_teacher');
+    Route::post('/update-teacher/{slug}', [AdminTeacherController::class, 'updateTeacher'])->name('admin.update_teacher');
+    Route::delete('/delete-teacher/{slug}', [AdminTeacherController::class, 'destroyTeacher'])->name('admin.delete_teacher');
+    Route::get('/check-teacher-nid-update', [AdminTeacherController::class, 'checkNidForUpdate'])->name('admin.check_teacher_nid_update');
+
+
 
 
 });

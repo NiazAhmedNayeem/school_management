@@ -48,8 +48,8 @@
                                 </div>
                             </td>
                             <td>
-                                <a href="{{ route('admin.edit_class', $teacher->id) }}" class="btn btn-success btn-sm">Edit</a>
-                                <form action="{{ route('admin.delete_class', $teacher->id) }}" method="POST" class="d-inline">
+                                <a href="{{ route('admin.edit_teacher', $teacher->slug) }}" class="btn btn-success btn-sm">Edit</a>
+                                <form action="{{ route('admin.delete_teacher', $teacher->slug) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this class?')">Delete</button>

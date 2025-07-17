@@ -26,4 +26,18 @@ class Teacher extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    
+
+    public function getImageAttribute($value)
+    {
+        $path = public_path($value);
+
+        if ($value && file_exists($path)) {
+            return asset('public/' . $value);
+        }
+
+        return asset('public/backend/upload/default.jpg');
+    }
+
 }
